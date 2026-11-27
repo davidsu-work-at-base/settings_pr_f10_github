@@ -3,9 +3,11 @@ import { forwardRef } from 'react';
 const Button = forwardRef(({ className = '', variant, size, ...props }, ref) => {
   const baseStyles = 'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50';
   
-  const variantStyles = variant === 'ghost' 
-    ? 'hover:bg-slate-100' 
-    : 'bg-slate-900 text-white shadow hover:bg-slate-800';
+  const variantStyles = variant === 'ghost'
+    ? 'hover:bg-slate-100'
+    : variant === 'outline'
+      ? 'border border-border bg-transparent text-foreground hover:bg-muted'
+      : 'bg-slate-900 text-white shadow hover:bg-slate-800';
   
   const sizeStyles = size === 'icon' ? 'h-9 w-9' : 'h-9 px-4 py-2';
 
